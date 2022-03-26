@@ -59,6 +59,38 @@ public final class SmarthAppGrpc {
      return getSayBMIMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<ds.project.smarthealth.ValueRequest,
+      ds.project.smarthealth.ValueResponse> getSendValuesBackMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "sendValuesBack",
+      requestType = ds.project.smarthealth.ValueRequest.class,
+      responseType = ds.project.smarthealth.ValueResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<ds.project.smarthealth.ValueRequest,
+      ds.project.smarthealth.ValueResponse> getSendValuesBackMethod() {
+    io.grpc.MethodDescriptor<ds.project.smarthealth.ValueRequest, ds.project.smarthealth.ValueResponse> getSendValuesBackMethod;
+    if ((getSendValuesBackMethod = SmarthAppGrpc.getSendValuesBackMethod) == null) {
+      synchronized (SmarthAppGrpc.class) {
+        if ((getSendValuesBackMethod = SmarthAppGrpc.getSendValuesBackMethod) == null) {
+          SmarthAppGrpc.getSendValuesBackMethod = getSendValuesBackMethod = 
+              io.grpc.MethodDescriptor.<ds.project.smarthealth.ValueRequest, ds.project.smarthealth.ValueResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "smarthealth.SmarthApp", "sendValuesBack"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ds.project.smarthealth.ValueRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ds.project.smarthealth.ValueResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new SmarthAppMethodDescriptorSupplier("sendValuesBack"))
+                  .build();
+          }
+        }
+     }
+     return getSendValuesBackMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -96,6 +128,13 @@ public final class SmarthAppGrpc {
       asyncUnimplementedUnaryCall(getSayBMIMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void sendValuesBack(ds.project.smarthealth.ValueRequest request,
+        io.grpc.stub.StreamObserver<ds.project.smarthealth.ValueResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendValuesBackMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -105,6 +144,13 @@ public final class SmarthAppGrpc {
                 ds.project.smarthealth.BMIRequest,
                 ds.project.smarthealth.BMIResponse>(
                   this, METHODID_SAY_BMI)))
+          .addMethod(
+            getSendValuesBackMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                ds.project.smarthealth.ValueRequest,
+                ds.project.smarthealth.ValueResponse>(
+                  this, METHODID_SEND_VALUES_BACK)))
           .build();
     }
   }
@@ -137,6 +183,14 @@ public final class SmarthAppGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSayBMIMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void sendValuesBack(ds.project.smarthealth.ValueRequest request,
+        io.grpc.stub.StreamObserver<ds.project.smarthealth.ValueResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getSendValuesBackMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -165,6 +219,14 @@ public final class SmarthAppGrpc {
     public ds.project.smarthealth.BMIResponse sayBMI(ds.project.smarthealth.BMIRequest request) {
       return blockingUnaryCall(
           getChannel(), getSayBMIMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<ds.project.smarthealth.ValueResponse> sendValuesBack(
+        ds.project.smarthealth.ValueRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getSendValuesBackMethod(), getCallOptions(), request);
     }
   }
 
@@ -199,6 +261,7 @@ public final class SmarthAppGrpc {
   }
 
   private static final int METHODID_SAY_BMI = 0;
+  private static final int METHODID_SEND_VALUES_BACK = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -220,6 +283,10 @@ public final class SmarthAppGrpc {
         case METHODID_SAY_BMI:
           serviceImpl.sayBMI((ds.project.smarthealth.BMIRequest) request,
               (io.grpc.stub.StreamObserver<ds.project.smarthealth.BMIResponse>) responseObserver);
+          break;
+        case METHODID_SEND_VALUES_BACK:
+          serviceImpl.sendValuesBack((ds.project.smarthealth.ValueRequest) request,
+              (io.grpc.stub.StreamObserver<ds.project.smarthealth.ValueResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -283,6 +350,7 @@ public final class SmarthAppGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new SmarthAppFileDescriptorSupplier())
               .addMethod(getSayBMIMethod())
+              .addMethod(getSendValuesBackMethod())
               .build();
         }
       }

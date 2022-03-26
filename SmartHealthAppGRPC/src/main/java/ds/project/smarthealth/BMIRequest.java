@@ -20,8 +20,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private BMIRequest() {
-    weight_ = 0;
-    height_ = 0F;
+    weight_ = 0D;
+    height_ = 0D;
+    operation_ = 0;
   }
 
   @java.lang.Override
@@ -48,14 +49,20 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 9: {
 
-            weight_ = input.readInt32();
+            weight_ = input.readDouble();
             break;
           }
-          case 21: {
+          case 17: {
 
-            height_ = input.readFloat();
+            height_ = input.readDouble();
+            break;
+          }
+          case 24: {
+            int rawValue = input.readEnum();
+
+            operation_ = rawValue;
             break;
           }
           default: {
@@ -90,22 +97,128 @@ private static final long serialVersionUID = 0L;
             ds.project.smarthealth.BMIRequest.class, ds.project.smarthealth.BMIRequest.Builder.class);
   }
 
-  public static final int WEIGHT_FIELD_NUMBER = 1;
-  private int weight_;
   /**
-   * <code>int32 weight = 1;</code>
+   * Protobuf enum {@code smarthealth.BMIRequest.Operation}
    */
-  public int getWeight() {
+  public enum Operation
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DIVISION = 0;</code>
+     */
+    DIVISION(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DIVISION = 0;</code>
+     */
+    public static final int DIVISION_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Operation valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static Operation forNumber(int value) {
+      switch (value) {
+        case 0: return DIVISION;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Operation>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Operation> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Operation>() {
+            public Operation findValueByNumber(int number) {
+              return Operation.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return ds.project.smarthealth.BMIRequest.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Operation[] VALUES = values();
+
+    public static Operation valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Operation(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:smarthealth.BMIRequest.Operation)
+  }
+
+  public static final int WEIGHT_FIELD_NUMBER = 1;
+  private double weight_;
+  /**
+   * <code>double weight = 1;</code>
+   */
+  public double getWeight() {
     return weight_;
   }
 
   public static final int HEIGHT_FIELD_NUMBER = 2;
-  private float height_;
+  private double height_;
   /**
-   * <code>float height = 2;</code>
+   * <code>double height = 2;</code>
    */
-  public float getHeight() {
+  public double getHeight() {
     return height_;
+  }
+
+  public static final int OPERATION_FIELD_NUMBER = 3;
+  private int operation_;
+  /**
+   * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+   */
+  public int getOperationValue() {
+    return operation_;
+  }
+  /**
+   * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+   */
+  public ds.project.smarthealth.BMIRequest.Operation getOperation() {
+    @SuppressWarnings("deprecation")
+    ds.project.smarthealth.BMIRequest.Operation result = ds.project.smarthealth.BMIRequest.Operation.valueOf(operation_);
+    return result == null ? ds.project.smarthealth.BMIRequest.Operation.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -122,11 +235,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (weight_ != 0) {
-      output.writeInt32(1, weight_);
+    if (weight_ != 0D) {
+      output.writeDouble(1, weight_);
     }
-    if (height_ != 0F) {
-      output.writeFloat(2, height_);
+    if (height_ != 0D) {
+      output.writeDouble(2, height_);
+    }
+    if (operation_ != ds.project.smarthealth.BMIRequest.Operation.DIVISION.getNumber()) {
+      output.writeEnum(3, operation_);
     }
     unknownFields.writeTo(output);
   }
@@ -137,13 +253,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (weight_ != 0) {
+    if (weight_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, weight_);
+        .computeDoubleSize(1, weight_);
     }
-    if (height_ != 0F) {
+    if (height_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(2, height_);
+        .computeDoubleSize(2, height_);
+    }
+    if (operation_ != ds.project.smarthealth.BMIRequest.Operation.DIVISION.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(3, operation_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -161,12 +281,15 @@ private static final long serialVersionUID = 0L;
     ds.project.smarthealth.BMIRequest other = (ds.project.smarthealth.BMIRequest) obj;
 
     boolean result = true;
-    result = result && (getWeight()
-        == other.getWeight());
     result = result && (
-        java.lang.Float.floatToIntBits(getHeight())
-        == java.lang.Float.floatToIntBits(
+        java.lang.Double.doubleToLongBits(getWeight())
+        == java.lang.Double.doubleToLongBits(
+            other.getWeight()));
+    result = result && (
+        java.lang.Double.doubleToLongBits(getHeight())
+        == java.lang.Double.doubleToLongBits(
             other.getHeight()));
+    result = result && operation_ == other.operation_;
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -179,10 +302,13 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
-    hash = (53 * hash) + getWeight();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getWeight()));
     hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getHeight());
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getHeight()));
+    hash = (37 * hash) + OPERATION_FIELD_NUMBER;
+    hash = (53 * hash) + operation_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -320,9 +446,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      weight_ = 0;
+      weight_ = 0D;
 
-      height_ = 0F;
+      height_ = 0D;
+
+      operation_ = 0;
 
       return this;
     }
@@ -352,6 +480,7 @@ private static final long serialVersionUID = 0L;
       ds.project.smarthealth.BMIRequest result = new ds.project.smarthealth.BMIRequest(this);
       result.weight_ = weight_;
       result.height_ = height_;
+      result.operation_ = operation_;
       onBuilt();
       return result;
     }
@@ -400,11 +529,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ds.project.smarthealth.BMIRequest other) {
       if (other == ds.project.smarthealth.BMIRequest.getDefaultInstance()) return this;
-      if (other.getWeight() != 0) {
+      if (other.getWeight() != 0D) {
         setWeight(other.getWeight());
       }
-      if (other.getHeight() != 0F) {
+      if (other.getHeight() != 0D) {
         setHeight(other.getHeight());
+      }
+      if (other.operation_ != 0) {
+        setOperationValue(other.getOperationValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -435,54 +567,99 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int weight_ ;
+    private double weight_ ;
     /**
-     * <code>int32 weight = 1;</code>
+     * <code>double weight = 1;</code>
      */
-    public int getWeight() {
+    public double getWeight() {
       return weight_;
     }
     /**
-     * <code>int32 weight = 1;</code>
+     * <code>double weight = 1;</code>
      */
-    public Builder setWeight(int value) {
+    public Builder setWeight(double value) {
       
       weight_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 weight = 1;</code>
+     * <code>double weight = 1;</code>
      */
     public Builder clearWeight() {
       
-      weight_ = 0;
+      weight_ = 0D;
       onChanged();
       return this;
     }
 
-    private float height_ ;
+    private double height_ ;
     /**
-     * <code>float height = 2;</code>
+     * <code>double height = 2;</code>
      */
-    public float getHeight() {
+    public double getHeight() {
       return height_;
     }
     /**
-     * <code>float height = 2;</code>
+     * <code>double height = 2;</code>
      */
-    public Builder setHeight(float value) {
+    public Builder setHeight(double value) {
       
       height_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>float height = 2;</code>
+     * <code>double height = 2;</code>
      */
     public Builder clearHeight() {
       
-      height_ = 0F;
+      height_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private int operation_ = 0;
+    /**
+     * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+     */
+    public int getOperationValue() {
+      return operation_;
+    }
+    /**
+     * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+     */
+    public Builder setOperationValue(int value) {
+      operation_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+     */
+    public ds.project.smarthealth.BMIRequest.Operation getOperation() {
+      @SuppressWarnings("deprecation")
+      ds.project.smarthealth.BMIRequest.Operation result = ds.project.smarthealth.BMIRequest.Operation.valueOf(operation_);
+      return result == null ? ds.project.smarthealth.BMIRequest.Operation.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+     */
+    public Builder setOperation(ds.project.smarthealth.BMIRequest.Operation value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      operation_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+     */
+    public Builder clearOperation() {
+      
+      operation_ = 0;
       onChanged();
       return this;
     }

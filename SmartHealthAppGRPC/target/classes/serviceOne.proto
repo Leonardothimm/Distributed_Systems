@@ -16,23 +16,56 @@ service SmarthApp{
 	//Unary
 	rpc sayBMI(BMIRequest) returns (BMIResponse){}
 
+	//
+	rpc sendValuesBack(ValueRequest) returns (stream ValueResponse){}
+
 
 }
 
 //Request message coming from client
 message BMIRequest {
 
-	int32 weight = 1 ;
+	double weight = 1 ;
 
-	float height = 2;
+	double height = 2;
+
+	enum Operation{
+
+		DIVISION = 0;
+	}
+
+	Operation operation = 3;
 
 }
 
 //Response message that will send the BMI
 message BMIResponse{
 
-	string answer = 1;
+	string message = 1;
+
+	//float result = 2;
 
 
 }
+
+//Service two
+//Request message coming from client
+message ValueRequest {
+
+    string medicine = 1;
+    int32 number = 2;
+}
+
+//Response message that will send the BMI
+message ValueResponse{
+
+	//string type = 1;
+
+	string message = 1;
+
+	//float result = 2;
+
+
+}
+
 

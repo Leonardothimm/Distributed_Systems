@@ -8,12 +8,21 @@ public interface BMIRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 weight = 1;</code>
+   * <code>double weight = 1;</code>
    */
-  int getWeight();
+  double getWeight();
 
   /**
-   * <code>float height = 2;</code>
+   * <code>double height = 2;</code>
    */
-  float getHeight();
+  double getHeight();
+
+  /**
+   * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+   */
+  int getOperationValue();
+  /**
+   * <code>.smarthealth.BMIRequest.Operation operation = 3;</code>
+   */
+  ds.project.smarthealth.BMIRequest.Operation getOperation();
 }

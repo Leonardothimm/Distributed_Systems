@@ -24,6 +24,16 @@ public final class SmartHealthImp {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_smarthealth_BMIResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_smarthealth_ValueRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_smarthealth_ValueRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_smarthealth_ValueResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_smarthealth_ValueResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,12 +43,18 @@ public final class SmartHealthImp {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020serviceOne.proto\022\013smarthealth\",\n\nBMIRe" +
-      "quest\022\016\n\006weight\030\001 \001(\005\022\016\n\006height\030\002 \001(\002\"\035\n" +
-      "\013BMIResponse\022\016\n\006answer\030\001 \001(\t2J\n\tSmarthAp" +
-      "p\022=\n\006sayBMI\022\027.smarthealth.BMIRequest\032\030.s" +
-      "marthealth.BMIResponse\"\000B*\n\026ds.project.s" +
-      "marthealthB\016SmartHealthImpP\001b\006proto3"
+      "\n\020serviceOne.proto\022\013smarthealth\"}\n\nBMIRe" +
+      "quest\022\016\n\006weight\030\001 \001(\001\022\016\n\006height\030\002 \001(\001\0224\n" +
+      "\toperation\030\003 \001(\0162!.smarthealth.BMIReques" +
+      "t.Operation\"\031\n\tOperation\022\014\n\010DIVISION\020\000\"\036" +
+      "\n\013BMIResponse\022\017\n\007message\030\001 \001(\t\"0\n\014ValueR" +
+      "equest\022\020\n\010medicine\030\001 \001(\t\022\016\n\006number\030\002 \001(\005" +
+      "\" \n\rValueResponse\022\017\n\007message\030\001 \001(\t2\227\001\n\tS" +
+      "marthApp\022=\n\006sayBMI\022\027.smarthealth.BMIRequ" +
+      "est\032\030.smarthealth.BMIResponse\"\000\022K\n\016sendV" +
+      "aluesBack\022\031.smarthealth.ValueRequest\032\032.s" +
+      "marthealth.ValueResponse\"\0000\001B*\n\026ds.proje" +
+      "ct.smarthealthB\016SmartHealthImpP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -57,13 +73,25 @@ public final class SmartHealthImp {
     internal_static_smarthealth_BMIRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smarthealth_BMIRequest_descriptor,
-        new java.lang.String[] { "Weight", "Height", });
+        new java.lang.String[] { "Weight", "Height", "Operation", });
     internal_static_smarthealth_BMIResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_smarthealth_BMIResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smarthealth_BMIResponse_descriptor,
-        new java.lang.String[] { "Answer", });
+        new java.lang.String[] { "Message", });
+    internal_static_smarthealth_ValueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_smarthealth_ValueRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_smarthealth_ValueRequest_descriptor,
+        new java.lang.String[] { "Medicine", "Number", });
+    internal_static_smarthealth_ValueResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_smarthealth_ValueResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_smarthealth_ValueResponse_descriptor,
+        new java.lang.String[] { "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -8,18 +8,18 @@ package ds.project.smarthealth;
  *Response message that will send the BMI
  * </pre>
  *
- * Protobuf type {@code smarthealth.BMIResponse}
+ * Protobuf type {@code smarthealth.ValueResponse}
  */
-public  final class BMIResponse extends
+public  final class ValueResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:smarthealth.BMIResponse)
-    BMIResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:smarthealth.ValueResponse)
+    ValueResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use BMIResponse.newBuilder() to construct.
-  private BMIResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ValueResponse.newBuilder() to construct.
+  private ValueResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private BMIResponse() {
+  private ValueResponse() {
     message_ = "";
   }
 
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BMIResponse(
+  private ValueResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -74,15 +74,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_descriptor;
+    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_fieldAccessorTable
+    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ds.project.smarthealth.BMIResponse.class, ds.project.smarthealth.BMIResponse.Builder.class);
+            ds.project.smarthealth.ValueResponse.class, ds.project.smarthealth.ValueResponse.Builder.class);
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 1;
@@ -158,10 +158,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ds.project.smarthealth.BMIResponse)) {
+    if (!(obj instanceof ds.project.smarthealth.ValueResponse)) {
       return super.equals(obj);
     }
-    ds.project.smarthealth.BMIResponse other = (ds.project.smarthealth.BMIResponse) obj;
+    ds.project.smarthealth.ValueResponse other = (ds.project.smarthealth.ValueResponse) obj;
 
     boolean result = true;
     result = result && getMessage()
@@ -184,69 +184,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(byte[] data)
+  public static ds.project.smarthealth.ValueResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(java.io.InputStream input)
+  public static ds.project.smarthealth.ValueResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseDelimitedFrom(java.io.InputStream input)
+  public static ds.project.smarthealth.ValueResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ds.project.smarthealth.BMIResponse parseDelimitedFrom(
+  public static ds.project.smarthealth.ValueResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -259,7 +259,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ds.project.smarthealth.BMIResponse prototype) {
+  public static Builder newBuilder(ds.project.smarthealth.ValueResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -279,26 +279,26 @@ private static final long serialVersionUID = 0L;
    *Response message that will send the BMI
    * </pre>
    *
-   * Protobuf type {@code smarthealth.BMIResponse}
+   * Protobuf type {@code smarthealth.ValueResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:smarthealth.BMIResponse)
-      ds.project.smarthealth.BMIResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:smarthealth.ValueResponse)
+      ds.project.smarthealth.ValueResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_descriptor;
+      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_fieldAccessorTable
+      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ds.project.smarthealth.BMIResponse.class, ds.project.smarthealth.BMIResponse.Builder.class);
+              ds.project.smarthealth.ValueResponse.class, ds.project.smarthealth.ValueResponse.Builder.class);
     }
 
-    // Construct using ds.project.smarthealth.BMIResponse.newBuilder()
+    // Construct using ds.project.smarthealth.ValueResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -324,17 +324,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_descriptor;
+      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueResponse_descriptor;
     }
 
     @java.lang.Override
-    public ds.project.smarthealth.BMIResponse getDefaultInstanceForType() {
-      return ds.project.smarthealth.BMIResponse.getDefaultInstance();
+    public ds.project.smarthealth.ValueResponse getDefaultInstanceForType() {
+      return ds.project.smarthealth.ValueResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ds.project.smarthealth.BMIResponse build() {
-      ds.project.smarthealth.BMIResponse result = buildPartial();
+    public ds.project.smarthealth.ValueResponse build() {
+      ds.project.smarthealth.ValueResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -342,8 +342,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ds.project.smarthealth.BMIResponse buildPartial() {
-      ds.project.smarthealth.BMIResponse result = new ds.project.smarthealth.BMIResponse(this);
+    public ds.project.smarthealth.ValueResponse buildPartial() {
+      ds.project.smarthealth.ValueResponse result = new ds.project.smarthealth.ValueResponse(this);
       result.message_ = message_;
       onBuilt();
       return result;
@@ -383,16 +383,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ds.project.smarthealth.BMIResponse) {
-        return mergeFrom((ds.project.smarthealth.BMIResponse)other);
+      if (other instanceof ds.project.smarthealth.ValueResponse) {
+        return mergeFrom((ds.project.smarthealth.ValueResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ds.project.smarthealth.BMIResponse other) {
-      if (other == ds.project.smarthealth.BMIResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(ds.project.smarthealth.ValueResponse other) {
+      if (other == ds.project.smarthealth.ValueResponse.getDefaultInstance()) return this;
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
         onChanged();
@@ -412,11 +412,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ds.project.smarthealth.BMIResponse parsedMessage = null;
+      ds.project.smarthealth.ValueResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ds.project.smarthealth.BMIResponse) e.getUnfinishedMessage();
+        parsedMessage = (ds.project.smarthealth.ValueResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -507,41 +507,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:smarthealth.BMIResponse)
+    // @@protoc_insertion_point(builder_scope:smarthealth.ValueResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:smarthealth.BMIResponse)
-  private static final ds.project.smarthealth.BMIResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:smarthealth.ValueResponse)
+  private static final ds.project.smarthealth.ValueResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ds.project.smarthealth.BMIResponse();
+    DEFAULT_INSTANCE = new ds.project.smarthealth.ValueResponse();
   }
 
-  public static ds.project.smarthealth.BMIResponse getDefaultInstance() {
+  public static ds.project.smarthealth.ValueResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<BMIResponse>
-      PARSER = new com.google.protobuf.AbstractParser<BMIResponse>() {
+  private static final com.google.protobuf.Parser<ValueResponse>
+      PARSER = new com.google.protobuf.AbstractParser<ValueResponse>() {
     @java.lang.Override
-    public BMIResponse parsePartialFrom(
+    public ValueResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BMIResponse(input, extensionRegistry);
+      return new ValueResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<BMIResponse> parser() {
+  public static com.google.protobuf.Parser<ValueResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<BMIResponse> getParserForType() {
+  public com.google.protobuf.Parser<ValueResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ds.project.smarthealth.BMIResponse getDefaultInstanceForType() {
+  public ds.project.smarthealth.ValueResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

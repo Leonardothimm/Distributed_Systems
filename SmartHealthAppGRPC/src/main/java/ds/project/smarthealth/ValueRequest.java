@@ -5,22 +5,24 @@ package ds.project.smarthealth;
 
 /**
  * <pre>
- *Response message that will send the BMI
+ *Service two
+ *Request message coming from client
  * </pre>
  *
- * Protobuf type {@code smarthealth.BMIResponse}
+ * Protobuf type {@code smarthealth.ValueRequest}
  */
-public  final class BMIResponse extends
+public  final class ValueRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:smarthealth.BMIResponse)
-    BMIResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:smarthealth.ValueRequest)
+    ValueRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use BMIResponse.newBuilder() to construct.
-  private BMIResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ValueRequest.newBuilder() to construct.
+  private ValueRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private BMIResponse() {
-    message_ = "";
+  private ValueRequest() {
+    medicine_ = "";
+    number_ = 0;
   }
 
   @java.lang.Override
@@ -28,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BMIResponse(
+  private ValueRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,7 +52,12 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            message_ = s;
+            medicine_ = s;
+            break;
+          }
+          case 16: {
+
+            number_ = input.readInt32();
             break;
           }
           default: {
@@ -74,49 +81,58 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_descriptor;
+    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_fieldAccessorTable
+    return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ds.project.smarthealth.BMIResponse.class, ds.project.smarthealth.BMIResponse.Builder.class);
+            ds.project.smarthealth.ValueRequest.class, ds.project.smarthealth.ValueRequest.Builder.class);
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object message_;
+  public static final int MEDICINE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object medicine_;
   /**
-   * <code>string message = 1;</code>
+   * <code>string medicine = 1;</code>
    */
-  public java.lang.String getMessage() {
-    java.lang.Object ref = message_;
+  public java.lang.String getMedicine() {
+    java.lang.Object ref = medicine_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      message_ = s;
+      medicine_ = s;
       return s;
     }
   }
   /**
-   * <code>string message = 1;</code>
+   * <code>string medicine = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getMessageBytes() {
-    java.lang.Object ref = message_;
+      getMedicineBytes() {
+    java.lang.Object ref = medicine_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      message_ = b;
+      medicine_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int NUMBER_FIELD_NUMBER = 2;
+  private int number_;
+  /**
+   * <code>int32 number = 2;</code>
+   */
+  public int getNumber() {
+    return number_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -133,8 +149,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
+    if (!getMedicineBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, medicine_);
+    }
+    if (number_ != 0) {
+      output.writeInt32(2, number_);
     }
     unknownFields.writeTo(output);
   }
@@ -145,8 +164,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+    if (!getMedicineBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, medicine_);
+    }
+    if (number_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, number_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -158,14 +181,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ds.project.smarthealth.BMIResponse)) {
+    if (!(obj instanceof ds.project.smarthealth.ValueRequest)) {
       return super.equals(obj);
     }
-    ds.project.smarthealth.BMIResponse other = (ds.project.smarthealth.BMIResponse) obj;
+    ds.project.smarthealth.ValueRequest other = (ds.project.smarthealth.ValueRequest) obj;
 
     boolean result = true;
-    result = result && getMessage()
-        .equals(other.getMessage());
+    result = result && getMedicine()
+        .equals(other.getMedicine());
+    result = result && (getNumber()
+        == other.getNumber());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -177,76 +202,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getMessage().hashCode();
+    hash = (37 * hash) + MEDICINE_FIELD_NUMBER;
+    hash = (53 * hash) + getMedicine().hashCode();
+    hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getNumber();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(byte[] data)
+  public static ds.project.smarthealth.ValueRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(java.io.InputStream input)
+  public static ds.project.smarthealth.ValueRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseDelimitedFrom(java.io.InputStream input)
+  public static ds.project.smarthealth.ValueRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ds.project.smarthealth.BMIResponse parseDelimitedFrom(
+  public static ds.project.smarthealth.ValueRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ds.project.smarthealth.BMIResponse parseFrom(
+  public static ds.project.smarthealth.ValueRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -259,7 +286,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ds.project.smarthealth.BMIResponse prototype) {
+  public static Builder newBuilder(ds.project.smarthealth.ValueRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -276,29 +303,30 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Response message that will send the BMI
+   *Service two
+   *Request message coming from client
    * </pre>
    *
-   * Protobuf type {@code smarthealth.BMIResponse}
+   * Protobuf type {@code smarthealth.ValueRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:smarthealth.BMIResponse)
-      ds.project.smarthealth.BMIResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:smarthealth.ValueRequest)
+      ds.project.smarthealth.ValueRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_descriptor;
+      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_fieldAccessorTable
+      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ds.project.smarthealth.BMIResponse.class, ds.project.smarthealth.BMIResponse.Builder.class);
+              ds.project.smarthealth.ValueRequest.class, ds.project.smarthealth.ValueRequest.Builder.class);
     }
 
-    // Construct using ds.project.smarthealth.BMIResponse.newBuilder()
+    // Construct using ds.project.smarthealth.ValueRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -316,7 +344,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      message_ = "";
+      medicine_ = "";
+
+      number_ = 0;
 
       return this;
     }
@@ -324,17 +354,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_BMIResponse_descriptor;
+      return ds.project.smarthealth.SmartHealthImp.internal_static_smarthealth_ValueRequest_descriptor;
     }
 
     @java.lang.Override
-    public ds.project.smarthealth.BMIResponse getDefaultInstanceForType() {
-      return ds.project.smarthealth.BMIResponse.getDefaultInstance();
+    public ds.project.smarthealth.ValueRequest getDefaultInstanceForType() {
+      return ds.project.smarthealth.ValueRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ds.project.smarthealth.BMIResponse build() {
-      ds.project.smarthealth.BMIResponse result = buildPartial();
+    public ds.project.smarthealth.ValueRequest build() {
+      ds.project.smarthealth.ValueRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -342,9 +372,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ds.project.smarthealth.BMIResponse buildPartial() {
-      ds.project.smarthealth.BMIResponse result = new ds.project.smarthealth.BMIResponse(this);
-      result.message_ = message_;
+    public ds.project.smarthealth.ValueRequest buildPartial() {
+      ds.project.smarthealth.ValueRequest result = new ds.project.smarthealth.ValueRequest(this);
+      result.medicine_ = medicine_;
+      result.number_ = number_;
       onBuilt();
       return result;
     }
@@ -383,19 +414,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ds.project.smarthealth.BMIResponse) {
-        return mergeFrom((ds.project.smarthealth.BMIResponse)other);
+      if (other instanceof ds.project.smarthealth.ValueRequest) {
+        return mergeFrom((ds.project.smarthealth.ValueRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ds.project.smarthealth.BMIResponse other) {
-      if (other == ds.project.smarthealth.BMIResponse.getDefaultInstance()) return this;
-      if (!other.getMessage().isEmpty()) {
-        message_ = other.message_;
+    public Builder mergeFrom(ds.project.smarthealth.ValueRequest other) {
+      if (other == ds.project.smarthealth.ValueRequest.getDefaultInstance()) return this;
+      if (!other.getMedicine().isEmpty()) {
+        medicine_ = other.medicine_;
         onChanged();
+      }
+      if (other.getNumber() != 0) {
+        setNumber(other.getNumber());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -412,11 +446,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ds.project.smarthealth.BMIResponse parsedMessage = null;
+      ds.project.smarthealth.ValueRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ds.project.smarthealth.BMIResponse) e.getUnfinishedMessage();
+        parsedMessage = (ds.project.smarthealth.ValueRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -426,71 +460,97 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object message_ = "";
+    private java.lang.Object medicine_ = "";
     /**
-     * <code>string message = 1;</code>
+     * <code>string medicine = 1;</code>
      */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
+    public java.lang.String getMedicine() {
+      java.lang.Object ref = medicine_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        message_ = s;
+        medicine_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string medicine = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
+        getMedicineBytes() {
+      java.lang.Object ref = medicine_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        message_ = b;
+        medicine_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string medicine = 1;</code>
      */
-    public Builder setMessage(
+    public Builder setMedicine(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      message_ = value;
+      medicine_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string medicine = 1;</code>
      */
-    public Builder clearMessage() {
+    public Builder clearMedicine() {
       
-      message_ = getDefaultInstance().getMessage();
+      medicine_ = getDefaultInstance().getMedicine();
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string medicine = 1;</code>
      */
-    public Builder setMessageBytes(
+    public Builder setMedicineBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      message_ = value;
+      medicine_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int number_ ;
+    /**
+     * <code>int32 number = 2;</code>
+     */
+    public int getNumber() {
+      return number_;
+    }
+    /**
+     * <code>int32 number = 2;</code>
+     */
+    public Builder setNumber(int value) {
+      
+      number_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 number = 2;</code>
+     */
+    public Builder clearNumber() {
+      
+      number_ = 0;
       onChanged();
       return this;
     }
@@ -507,41 +567,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:smarthealth.BMIResponse)
+    // @@protoc_insertion_point(builder_scope:smarthealth.ValueRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:smarthealth.BMIResponse)
-  private static final ds.project.smarthealth.BMIResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:smarthealth.ValueRequest)
+  private static final ds.project.smarthealth.ValueRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ds.project.smarthealth.BMIResponse();
+    DEFAULT_INSTANCE = new ds.project.smarthealth.ValueRequest();
   }
 
-  public static ds.project.smarthealth.BMIResponse getDefaultInstance() {
+  public static ds.project.smarthealth.ValueRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<BMIResponse>
-      PARSER = new com.google.protobuf.AbstractParser<BMIResponse>() {
+  private static final com.google.protobuf.Parser<ValueRequest>
+      PARSER = new com.google.protobuf.AbstractParser<ValueRequest>() {
     @java.lang.Override
-    public BMIResponse parsePartialFrom(
+    public ValueRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BMIResponse(input, extensionRegistry);
+      return new ValueRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<BMIResponse> parser() {
+  public static com.google.protobuf.Parser<ValueRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<BMIResponse> getParserForType() {
+  public com.google.protobuf.Parser<ValueRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ds.project.smarthealth.BMIResponse getDefaultInstanceForType() {
+  public ds.project.smarthealth.ValueRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

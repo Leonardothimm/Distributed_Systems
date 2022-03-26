@@ -3,8 +3,8 @@
 
 package ds.project.smarthealth;
 
-public interface BMIResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:smarthealth.BMIResponse)
+public interface ValueResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:smarthealth.ValueResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
