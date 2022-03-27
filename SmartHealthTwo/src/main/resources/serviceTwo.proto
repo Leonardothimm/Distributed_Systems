@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+//Package where the auto generated code will be placed
+option java_package = "ds.project.two.smarthealthtwo";
+
+//If different java files are generated for diff classess
+option java_multiple_files = true;
+
+option java_outer_classname = "SmartHealthTwoImp";
+
+
+package smarthealthtwo;
+
+service SmarthHealthTwo{
+
+
+   //Server Streaming
+   rpc sendValuesBack(ValueRequest) returns (stream ValueResponse){}
+
+   //Client Streaming
+   rpc calculateFAT(stream FatRequest) returns (FatResponse){}
+
+}
+
+
+//Service two
+//Request message coming from client
+message ValueRequest {
+
+    string speciality = 1;
+
+    //int32 number = 2;
+}
+
+//Response message that will send the BMI
+message ValueResponse{
+
+	//string type = 1;
+
+	int32 number = 1;
+
+	//float result = 2;
+}
+
+message FatRequest {
+
+    float bmi = 1;
+    float age = 2;
+
+    //int32 number = 2;
+}
+
+message FatResponse {
+
+    double percentage = 1;
+
+    //int32 number = 2;
+}
