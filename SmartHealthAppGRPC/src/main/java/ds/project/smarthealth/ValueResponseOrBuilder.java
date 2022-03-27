@@ -8,12 +8,7 @@ public interface ValueResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string message = 1;</code>
+   * <code>int32 number = 1;</code>
    */
-  java.lang.String getMessage();
-  /**
-   * <code>string message = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getMessageBytes();
+  int getNumber();
 }

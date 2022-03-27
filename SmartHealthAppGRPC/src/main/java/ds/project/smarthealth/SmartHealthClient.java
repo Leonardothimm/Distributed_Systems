@@ -1,23 +1,15 @@
 package ds.project.smarthealth;
-
-
-
-
-import java.util.Iterator;
-
-
 import ds.project.smarthealth.SmarthAppGrpc.SmarthAppBlockingStub;
 import ds.project.smarthealth.SmarthAppGrpc.SmarthAppStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
 public class SmartHealthClient {
 	
 	private static SmarthAppBlockingStub blockingStub;
-	private static SmarthAppStub asyncStub;
 	//private static SmarthAppStub asyncStub;
+
 	
 
 	public static void main(String[] args) {
@@ -28,12 +20,12 @@ public class SmartHealthClient {
 				.build();
 		
 		blockingStub = SmarthAppGrpc.newBlockingStub(channel);
-		asyncStub = SmarthAppGrpc.newStub(channel);
+		//asyncStub = SmarthAppGrpc.newStub(channel);
 		
-		//calculateMBI();
-		generateMedicine();
+		calculateMBI();
+		//generateDoctorRoom();
 
-	    //asyncStub = SmarthAppGrpc.newStub(channel);
+	  
 	}
 
 	    
@@ -60,106 +52,48 @@ public class SmartHealthClient {
 	     
 	   }
 	   
-		//blocking server-streaming
-		public static void generateMedicine() {
-			ValueRequest request = ValueRequest.newBuilder()
-					.setMedicine("allergy").setNumber(4).build();
-					//.setNumbers(5).setMin(0).setMax(100).build();
+	  /* public static void generateDoctorRoom() {
+		   
+		   String profile = "Cardiologist";
+		   
+		   ValueRequest request = ValueRequest.newBuilder()
+				   .setSpeciality(profile)
+				   .build();
+		   
+		   StreamObserver<ValueResponse> reponseObserver = new StreamObserver<ValueResponse>() {
+		
+		   //int count = 0;
 
-			try {
-				Iterator<ValueResponse> response = blockingStub.sendValuesBack(request);
+		@Override
+		public void onNext(ValueResponse value) {
+			System.out.println(profile+" are working on the Rooms: " + value.getNumber());
+			//count += 1;
+			
+		}
 
-				while(response.hasNext()) {
-					ValueResponse temp = response.next();
-				 	System.out.println(temp.getMessage());				
+		@Override
+		public void onError(Throwable t) {
+			 t.printStackTrace();
+			
+		}
+
+		@Override
+		public void onCompleted() {
+		System.out.println("Stream has been completed");
+		
 				}
 
-			} catch (StatusRuntimeException e) {
-				e.printStackTrace();
-			}
-
-		}
-
-
-
-
-
-
-
-}
-	    
-		/* public static void calculateAsync() {
-		     float weight = 55;
-		     float height = 174;
-		     float result = weight/height;
-					
-			for(int i=0; i<5; i++ ) {
-				CalculateRequest req = CalculateRequest.newBuilder()
-						.setNumber1(weight)
-						.setNumber2(height)
-						.setOperationValue(i)
-						.build();
-		
-				StreamObserver<BMIRequest> observer= new StreamObserver<BMIResponse>() {
-
-					@Override
-					public void onNext(BMIResponse response) {
-						// TODO Auto-generated method stub
-
-						System.out.println("res: " + response.getAnswer());
-				
-					}
-
-					@Override
-					public void onError(Throwable t) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					@Override
-					public void onCompleted() {
-						// TODO Auto-generated method stub
-						
-					}
-					
-				};
-				
-				asyncStub.calculate(req, observer);
-						
-				
-			}
+		   };
+		   asyncStub.sendValuesBack(request, reponseObserver);
+		   
+		  // asyncStub.sendValuesBack(request, reponseObserver);
+		   
+		  // asyncStub.sendValuesBack(request, reponseObserver);
 			
-			
-			//wait before terminate
-			try {
-				Thread.currentThread().sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
-		*/
-	
-		/*
-		 * 
-		public static void calculateBlocking() {
-		int num1 = 10;
-		int num2 = 20;
-		int operation = Operation.ADDITION_VALUE;
-				
-		for(int i=0; i<5; i++ ) {
-			CalculateRequest req = CalculateRequest.newBuilder()
-					.setNumber1(num1)
-					.setNumber2(num2)
-					.setOperationValue(i)
-					.build();
-	
-			CalculateResponse response = blockingStub.calculate(req);
-	
-			System.out.println("res: " + response.getResult() + " mes: " + response.getMessage());
-		}
-	}
-		 * */
+		  
+
+		   
+	   }*/
 
 
+} //last one

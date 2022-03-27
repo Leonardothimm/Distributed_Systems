@@ -8,17 +8,12 @@ public interface ValueRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string medicine = 1;</code>
+   * <code>string speciality = 1;</code>
    */
-  java.lang.String getMedicine();
+  java.lang.String getSpeciality();
   /**
-   * <code>string medicine = 1;</code>
+   * <code>string speciality = 1;</code>
    */
   com.google.protobuf.ByteString
-      getMedicineBytes();
-
-  /**
-   * <code>int32 number = 2;</code>
-   */
-  int getNumber();
+      getSpecialityBytes();
 }
